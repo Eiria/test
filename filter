@@ -1,0 +1,69 @@
+void blur(int height, int width, RGBTRIPLE image[height][width])
+{
+   int rgbtBlue = 0;
+   int rgbtGreen = 0;
+   int rgbtRed = 0;
+    for (int i = 0; i < height; i++)
+    {
+       for (int j = 0; j < width; j++)
+       {
+           void exist(RGBTRIPLE image[i][j], int height, int width);
+           void summ(RGBTRIPLE image[height][width], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           
+           if (exist(image[i - 1][j - 1], int height, int width))
+           {
+               summ(RGBTRIPLE image[i - 1][j - 1], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i - 1][j], int height, int width))
+           {
+               summ(RGBTRIPLE image[i - 1][j], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i - 1][j + 1], int height, int width))
+           {
+               summ(RGBTRIPLE image[i - 1][j + 1], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i][j - 1], int height, int width))
+           {
+               summ(RGBTRIPLE image[i][j - 1], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i][j + 1], int height, int width))
+           {
+               summ(RGBTRIPLE image[i][j + 1], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i + 1][j - 1], int height, int width))
+           {
+               summ(RGBTRIPLE image[i + 1][j - 1], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i + 1][j], int height, int width))
+           {
+               summ(RGBTRIPLE image[i + 1][j], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           if (exist(image[i + 1][j + 1], int height, int width))
+           {
+               summ(RGBTRIPLE image[i + 1][j + 1], int rgbtBlue, int rgbtGreen, int rgbtRed);
+           }
+           image[i][j].rgbtBlue = round(rgbtBlue);
+           image[i][j].rgbtGreen = round(rgbtGreen);
+           image[i][j].rgbtRed = round(rgbtRed);
+           
+           
+       }
+    }
+    return;
+}
+ void summ(RGBTRIPLE image[height][width], int rgbtBlue, int rgbtGreen, int rgbtRed)
+           {
+               rgbtBlue = rgbtBlue + round(image[height][width].rgbtBlue);
+               rgbtGreen = rgbtGreen + round(image[height][width].rgbtGreen);
+               rgbtRed = rgbtRed + round(image[height][width].rgbtRed);
+               return;
+           }
+           
+
+void exist(RGBTRIPLE image[i][j], int height, int width)
+{
+    if (i > 0 && i <= height && j > 0 && j <= width)
+    {
+        return true;
+    }
+}
